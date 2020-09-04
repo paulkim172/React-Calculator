@@ -3,7 +3,10 @@ import React, {Component} from 'react';
 class ClearButtons extends Component {
     render(){
         return(
-            <div></div>
+            <div>
+                <button>C</button>
+                <button>CE</button>
+            </div>
         )
     }
 }

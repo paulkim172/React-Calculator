@@ -3,7 +3,13 @@ import React, {Component} from 'react';
 class OperationButtons extends Component {
     render(){
         return(
-            <div></div>
+            <div>
+                <button>+</button>
+                <button>-</button>
+                <button>×</button>
+                <button>÷</button>
+                <button>=</button>
+            </div>
         )
     }
 }
