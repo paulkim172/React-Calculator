@@ -9,12 +9,9 @@ class App extends Component {
     super(props);
 
     this.updateEntry = this.updateEntry.bind(this);
-    this.updateValue = this.updateValue.bind(this);
-    this.updateDisplay = this.updateDisplay.bind(this);
 
     this.state = {
       currentDisplay: 0,
-      currentValue: 0,
       currentEntry: 0,
       previousEntry: null
     }
@@ -22,27 +19,15 @@ class App extends Component {
 
   updateEntry(x){
     this.setState({
-      currentDisplay: x
-    })
-  }
-
-  updateValue(x){
-    this.setState({
-      currentValue: x
-    })
-  }
-
-  updateDisplay(x){
-    this.setState({
-      currentDisplay: x
+      currentEntry: x
     })
   }
 
   render() {
     return (
       <div className="App">
-        <Display display={this.state.currentDisplay}/>
-        <Buttons updateEntry={this.updateEntry} updateDisplay={this.updateDisplay}/>
+        <Display display={this.state.currentEntry}/>
+        <Buttons currentEntry={this.state.currentEntry} updateEntry={this.updateEntry}/>
       </div>
     );
   }

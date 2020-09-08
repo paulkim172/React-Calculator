@@ -11,25 +11,25 @@ class Buttons extends Component {
     this.concatonatePeriod = this.concatonatePeriod.bind(this);
 
         this.state = {
-            entry: this.props.currentEntry,
+            entry: this.props.currentEntry
         }
     }
 
     concatonateNum(x){
 
         x = x.toString();
-
-        if(this.state.entry !== 0){
-            this.setState({
-                entry: this.state.entry + x
-            })
+        let dummyVar;
+        if(this.state.entry !== 0) {
+            dummyVar = this.state.entry + x;
         } else {
-            this.setState({
-                entry: parseInt(x)
-            })
+            dummyVar = parseInt(x);
         }
 
-        this.props.updateEntry(this.state.entry);
+        this.setState({
+            entry: dummyVar
+        })
+
+        this.props.updateEntry(parseFloat(dummyVar));
         
     }
 
@@ -39,12 +39,12 @@ class Buttons extends Component {
                 return;
             }
         }
+        let dummyVar = this.state.entry + "."
         this.setState({
-            entry: this.state.entry + "."
+            entry: dummyVar
         })
         
-        this.props.updateEntry(this.state.entry);
-        this.props.updateDisplay(this.state.entry);
+        this.props.updateEntry(parseFloat(dummyVar));
     }
 
     
