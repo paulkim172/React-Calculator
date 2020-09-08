@@ -42,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <Display display={this.state.currentDisplay}/>
-        <Buttons updateDisplay={this.updateDisplay}/>
+        <Buttons updateEntry={this.updateEntry} updateDisplay={this.updateDisplay}/>
       </div>
     );
   }

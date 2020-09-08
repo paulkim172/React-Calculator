@@ -8,7 +8,7 @@ class Buttons extends Component {
         super(props);
 
     this.concatonateNum = this.concatonateNum.bind(this);
-    this.concatonatePeriod = this.concatonatePeriod(this);
+    this.concatonatePeriod = this.concatonatePeriod.bind(this);
 
         this.state = {
             entry: this.props.currentEntry,
@@ -44,6 +44,7 @@ class Buttons extends Component {
         })
         
         this.props.updateEntry(this.state.entry);
+        this.props.updateDisplay(this.state.entry);
     }
 
     
