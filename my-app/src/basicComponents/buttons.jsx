@@ -7,35 +7,50 @@ class Buttons extends Component {
     constructor(props){
         super(props);
 
-    this.concatonateNumOne = this.concatonateNumOne.bind(this);
-    this.concatonateNumTwo = this.concatonateNumTwo.bind(this);
-    this.concatonateNumThree = this.concatonateNumThree.bind(this);
-    this.concatonateNumFour = this.concatonateNumFour.bind(this);
-    this.concatonateNumFive = this.concatonateNumFive.bind(this);
-    this.concatonateNumSix = this.concatonateNumSix.bind(this);
-    this.concatonateNumSeven = this.concatonateNumSeven.bind(this);
-    this.concatonateNumEight = this.concatonateNumEight.bind(this);
-    this.concatonateNumNine = this.concatonateNumNine.bind(this);
-
-    this.concatonateNumZero = this.concatonateNumZero.bind(this);
-
-    this.concatonatePeriod = this.concatonatePeriod.bind(this);
+    this.concatonateNum = this.concatonateNum.bind(this);
+    this.concatonatePeriod = this.concatonatePeriod(this);
 
         this.state = {
-            entry: this.props.currentEntry
+            entry: this.props.currentEntry,
         }
     }
 
-    concatonateNumOne(){
-        this.state.entry !== 0 &&
-        this.setState({
-            entry: this.state.number + "1"
-        })
+    concatonateNum(x){
+
+        x = x.toString();
+
+        if(this.state.entry !== 0){
+            this.setState({
+                entry: this.state.entry + x
+            })
+        } else {
+            this.setState({
+                entry: parseInt(x)
+            })
+        }
+
+        this.props.updateEntry(this.state.entry);
+        
     }
+
+    concatonatePeriod(){
+        for(let i = 0; i < this.state.entry.length; i++) {
+            if(this.state.entry[i] === "."){
+                return;
+            }
+        }
+        this.setState({
+            entry: this.state.entry + "."
+        })
+        
+        this.props.updateEntry(this.state.entry);
+    }
+
+    
     render() {
         return (
             <div>
-                <NumberButtons/>
+                <NumberButtons concatonateNum={this.concatonateNum} concatonatePeriod={this.concatonatePeriod}/>
                 <ClearButtons/>
                 <OperationButtons/>
                 

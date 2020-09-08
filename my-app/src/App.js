@@ -15,7 +15,8 @@ class App extends Component {
     this.state = {
       currentDisplay: 0,
       currentValue: 0,
-      currentEntry: 0
+      currentEntry: 0,
+      previousEntry: null
     }
   }
 
@@ -41,7 +42,7 @@ class App extends Component {
     return (
       <div className="App">
         <Display display={this.state.currentDisplay}/>
-        <Buttons/>
+        <Buttons updateDisplay={this.updateDisplay}/>
       </div>
     );
   }
