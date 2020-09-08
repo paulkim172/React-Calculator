@@ -4,8 +4,8 @@ class ClearButtons extends Component {
     render(){
         return(
             <div>
-                <button>C</button>
-                <button>CE</button>
+                <button onClick={() => {this.props.clearAll()}}>C</button>
+                <button onClick={() => {this.props.clearEntry()}}>CE</button>
             </div>
         )
     }
