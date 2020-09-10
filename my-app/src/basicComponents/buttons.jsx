@@ -12,6 +12,11 @@ class Buttons extends Component {
     this.clearAll = this.clearAll.bind(this);
     this.clearEntry = this.clearEntry.bind(this);
 
+    this.add = this.add.bind(this);
+    this.subtract = this.subtract.bind(this);
+    this.multiply = this.multiply.bind(this);
+    this.divide = this.divide.bind(this);
+    this.equals = this.equals.bind(this);
 
     this.state = {
         entry: this.props.currentEntry
@@ -22,18 +27,17 @@ class Buttons extends Component {
 
         x = x.toString();
         let dummyVar;
-        if(this.state.entry !== 0) {
+        if(this.state.entry !== null && this.state.entry !== 0) {
             dummyVar = this.state.entry + x;
         } else {
-            dummyVar = parseInt(x);
+            dummyVar = x;
         }
 
         this.setState({
             entry: dummyVar
         })
 
-        this.props.updateEntry(parseFloat(dummyVar));
-        
+        this.props.updateEntry(dummyVar);
     }
 
     concatonatePeriod(){
@@ -47,12 +51,12 @@ class Buttons extends Component {
             entry: dummyVar
         })
         
-        this.props.updateEntry(parseFloat(dummyVar));
+        this.props.updateEntry(dummyVar);
     }
 
     clearAll(){
         this.setState({
-            entry: 0
+            entry: ''
         })
 
         this.props.clearAll();
@@ -60,19 +64,80 @@ class Buttons extends Component {
 
     clearEntry(){
         this.setState({
-            entry: 0
+            entry: ''
         })
 
         this.props.clearEntry();
     }
     
+    add(){
+        
+        this.props.solve(this.state.entry);
+        this.props.setOperation('add');
+
+        this.setState({
+            entry: ''
+        })
+
+        
+    }
+
+    subtract(){
+        this.props.solve(this.state.entry);
+        this.props.setOperation('subtract');
+        
+        this.setState({
+            entry: ''
+        })
+    }
+
+    multiply(){
+
+        this.props.solve(this.state.entry);
+        this.props.setOperation('multiply');
+        
+        this.setState({
+            entry: ''
+        })
+    }
+
+    divide(){
+
+        this.props.solve(this.state.entry);
+        this.props.setOperation('divide');
+        
+        this.setState({
+            entry: ''
+        })
+    }
+
+    equals(){
+        this.props.solve(this.state.entry);
+        this.props.setOperation('equals');
+        
+        this.setState({
+            entry: ''
+        })
+    }
+
     render() {
         return (
             <div>
-                <NumberButtons concatonateNum={this.concatonateNum} concatonatePeriod={this.concatonatePeriod}/>
-                <ClearButtons clearAll={this.clearAll} clearEntry={this.clearEntry}/>
-                <OperationButtons/>
-                
+                <NumberButtons 
+                    concatonateNum={this.concatonateNum} 
+                    concatonatePeriod={this.concatonatePeriod}
+                />
+                <ClearButtons 
+                    clearAll={this.clearAll}
+                    clearEntry={this.clearEntry}
+                />
+                <OperationButtons 
+                    add={this.add} 
+                    subtract={this.subtract} 
+                    multiply={this.multiply} 
+                    divide={this.divide} 
+                    equals={this.equals}
+                />
             </div>
         )
     }
