@@ -122,22 +122,28 @@ class Buttons extends Component {
 
     render() {
         return (
-            <div>
-                <NumberButtons 
-                    concatonateNum={this.concatonateNum} 
-                    concatonatePeriod={this.concatonatePeriod}
-                />
-                <ClearButtons 
-                    clearAll={this.clearAll}
-                    clearEntry={this.clearEntry}
-                />
-                <OperationButtons 
-                    add={this.add} 
-                    subtract={this.subtract} 
-                    multiply={this.multiply} 
-                    divide={this.divide} 
-                    equals={this.equals}
-                />
+            <div className="buttons">
+                <div className="left-buttons">
+                    <NumberButtons 
+                        concatonateNum={this.concatonateNum} 
+                        concatonatePeriod={this.concatonatePeriod}
+                    />
+                </div>
+                
+                <div className="right-buttons">
+                    <ClearButtons 
+                        clearAll={this.clearAll}
+                        clearEntry={this.clearEntry}
+                    />
+                    <OperationButtons 
+                        add={this.add} 
+                        subtract={this.subtract} 
+                        multiply={this.multiply} 
+                        divide={this.divide} 
+                        equals={this.equals}
+                    />
+                </div>
+                
             </div>
         )
     }

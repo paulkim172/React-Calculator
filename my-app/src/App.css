@@ -1,1 +1,46 @@
 
+.App {
+    min-height: 400px;
+    min-width: 300px;
+    
+    max-height: 800px;
+    max-width: 600px;
+
+    display: grid;
+    grid-template-rows: 25% 75%;
+    border: solid;
+    box-sizing: border-box;
+}
+
+.display {
+    box-sizing: border-box;
+    max-width: inherit;
+    max-height: inherit;
+    font-size: 5rem;
+    background-color: #252525;
+    color: #fff;
+    text-align: right;
+      
+    grid-row: 1/2;
+    border: solid;
+}
+
+.buttons {
+    grid-row: 2/3;
+    border: solid;
+    grid-template-columns: 80% 20%;
+    box-sizing: border-box;
+}
+
+.left-buttons {
+    grid-column: 1/2;
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    border: solid;
+}
+
+.right-buttons {
+    grid-column: 2/3;
+    grid-template-rows: 18% 82%;
+    border: solid;
+}

@@ -59,78 +59,81 @@ class App extends Component {
   }
 
   solve(x){
+      if(this.state.resultEntry !== null){
 
-    if(this.state.resultEntry !== null){
-
-      switch(this.state.operation){
-        case 'add':
-          x = parseFloat(x);
-          this.setState({
-            currentEntry: x,
-            resultEntry: this.state.resultEntry + x,
-            currentDisplay: this.state.resultEntry + x,
-          });
-          break;
-
-        case 'subtract':
-          x = parseFloat(x);
-          this.setState({
-            currentEntry: x,
-            resultEntry: this.state.resultEntry - x,
-            currentDisplay: this.state.resultEntry - x,
-          });
-          break;
-
-        case 'multiply':
-          x = parseFloat(x);
-          this.setState({
-            currentEntry: x,
-            resultEntry: this.state.resultEntry * x,
-            currentDisplay: this.state.resultEntry * x,
-          });
-          break;
-
-        case 'divide':
-          x = parseFloat(x);
-          this.setState({
-            currentEntry: x,
-            resultEntry: this.state.resultEntry / x,
-            currentDisplay: this.state.resultEntry / x,
-          });
-          break;
-
-        case 'equals':
-          console.log(this.state.resultEntry);
-          if(x !== ''){
+        switch(this.state.operation){
+          case 'add':
             x = parseFloat(x);
             this.setState({
-              currentEntry: '',
-              resultEntry: x
-            })
-          } else {
+              currentEntry: x,
+              resultEntry: this.state.resultEntry + x,
+              currentDisplay: this.state.resultEntry + x,
+            });
+            break;
+  
+          case 'subtract':
+            x = parseFloat(x);
             this.setState({
-              currentEntry: ''
-            })
-          }
-          break;
-
-        default:
-          break;
+              currentEntry: x,
+              resultEntry: this.state.resultEntry - x,
+              currentDisplay: this.state.resultEntry - x,
+            });
+            break;
+  
+          case 'multiply':
+            x = parseFloat(x);
+            this.setState({
+              currentEntry: x,
+              resultEntry: this.state.resultEntry * x,
+              currentDisplay: this.state.resultEntry * x,
+            });
+            break;
+  
+          case 'divide':
+            x = parseFloat(x);
+            this.setState({
+              currentEntry: x,
+              resultEntry: this.state.resultEntry / x,
+              currentDisplay: this.state.resultEntry / x,
+            });
+            break;
+  
+          case 'equals':
+            console.log(this.state.resultEntry);
+            if(x !== ''){
+              x = parseFloat(x);
+              this.setState({
+                currentEntry: '',
+                resultEntry: x
+              })
+            }
+             else {
+              this.setState({
+                currentEntry: ''
+              })
+            }
+            break;
+  
+          default:
+            break;
+            
+        }
+  
+      } else if(x !== '' && this.state.resultEntry == null) {
+          this.setState({
+            resultEntry: x,
+          })
+      } else {
           
       }
-
-    } else {
-        this.setState({
-          resultEntry: x,
-        })
-    }
+    
   }
 
   render() {
     return (
       <div className="App">
         <Display display={this.state.currentDisplay}/>
-        <Buttons 
+        <Buttons
           currentEntry={this.state.currentEntry} 
           resultEntry={this.state.resultEntry}
 
