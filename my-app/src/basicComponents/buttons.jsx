@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import NumberButtons from './numberButtons';
-import ClearButtons from './clearButtons';
-import OperationButtons from './operationButtons';
+import RightButtons from './rightButtons';
+
 
 class Buttons extends Component {
     constructor(props){
@@ -123,27 +123,19 @@ class Buttons extends Component {
     render() {
         return (
             <div className="buttons">
-                <div className="left-buttons">
-                    <NumberButtons 
-                        concatonateNum={this.concatonateNum} 
-                        concatonatePeriod={this.concatonatePeriod}
-                    />
-                </div>
-                
-                <div className="right-buttons">
-                    <ClearButtons 
-                        clearAll={this.clearAll}
-                        clearEntry={this.clearEntry}
-                    />
-                    <OperationButtons 
-                        add={this.add} 
-                        subtract={this.subtract} 
-                        multiply={this.multiply} 
-                        divide={this.divide} 
-                        equals={this.equals}
-                    />
-                </div>
-                
+                <NumberButtons 
+                    concatonateNum={this.concatonateNum} 
+                    concatonatePeriod={this.concatonatePeriod}
+                />
+                <RightButtons 
+                    clearAll={this.clearAll}
+                    clearEntry={this.clearEntry}
+                    add={this.add} 
+                    subtract={this.subtract} 
+                    multiply={this.multiply} 
+                    divide={this.divide} 
+                    equals={this.equals}
+                />
             </div>
         )
     }
