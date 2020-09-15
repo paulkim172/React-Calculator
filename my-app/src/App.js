@@ -64,37 +64,53 @@ class App extends Component {
         switch(this.state.operation){
           case 'add':
             x = parseFloat(x);
+
+            let addition = this.state.resultEntry + x;
+            let additionDisplay = addition.toString();
+
             this.setState({
               currentEntry: x,
-              resultEntry: this.state.resultEntry + x,
-              currentDisplay: this.state.resultEntry + x,
+              resultEntry: addition,
+              currentDisplay: additionDisplay,
             });
             break;
   
           case 'subtract':
             x = parseFloat(x);
+
+            let subtraction = this.state.resultEntry - x;
+            let subtractionDisplay = subtraction.toString();
+
             this.setState({
               currentEntry: x,
-              resultEntry: this.state.resultEntry - x,
-              currentDisplay: this.state.resultEntry - x,
+              resultEntry: subtraction,
+              currentDisplay: subtractionDisplay,
             });
             break;
   
           case 'multiply':
             x = parseFloat(x);
+
+            let multiplication = this.state.resultEntry * x;
+            let multiplicationDisplay = multiplication.toString();
+
             this.setState({
               currentEntry: x,
-              resultEntry: this.state.resultEntry * x,
-              currentDisplay: this.state.resultEntry * x,
+              resultEntry: multiplication,
+              currentDisplay: multiplicationDisplay,
             });
             break;
   
           case 'divide':
             x = parseFloat(x);
+
+            let division = this.state.resultEntry / x;
+            let divisionDisplay = division.toString();
+
             this.setState({
               currentEntry: x,
-              resultEntry: this.state.resultEntry / x,
-              currentDisplay: this.state.resultEntry / x,
+              resultEntry: division,
+              currentDisplay: divisionDisplay,
             });
             break;
   

@@ -28,7 +28,11 @@ class Buttons extends Component {
         x = x.toString();
         let dummyVar;
         if(this.state.entry !== null && this.state.entry !== 0) {
-            dummyVar = this.state.entry + x;
+            if(this.state.entry.length < 13){
+                dummyVar = this.state.entry + x;
+            } else {
+                dummyVar = this.state.entry;
+            }
         } else {
             dummyVar = x;
         }
