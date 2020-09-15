@@ -14,8 +14,13 @@ class Display extends Component {
         let displayStyle = {
             fontSize: '5rem'
         }
-        
-        if(this.props.display.length > 20) {
+        if(this.props.display.length > 23) {
+            displayStyle = {
+                fontSize: '2.5rem'
+            }
+        }
+
+        else if(this.props.display.length > 20) {
             displayStyle = {
                 fontSize: '3rem'
             }

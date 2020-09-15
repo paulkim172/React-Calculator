@@ -3,7 +3,7 @@
     min-height: 400px;
     min-width: 300px;
     
-    max-height: 800px;
+    max-height: 450px;
     max-width: 600px;
 
     display: grid;
@@ -47,7 +47,6 @@ button {
 .buttons {
     display: grid;
     grid-row: 2/3;
-    border: solid;
     grid-template-columns: 75% 25%;
     box-sizing: border-box;
 }
@@ -62,7 +61,6 @@ button {
         'four five six' 
         'seven eight nine' 
         '. zero period';
-    border: solid;
 }
 
     .one {
@@ -113,7 +111,6 @@ button {
     display: grid;
     grid-column: 2/3;
     grid-template-rows:  1fr 3fr;
-    border: solid;
 }
 
     .clear-buttons {
