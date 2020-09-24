@@ -136,6 +136,7 @@ class App extends Component {
         }
   
       } else if(x !== '' && this.state.resultEntry == null) {
+          x = parseFloat(x);
           this.setState({
             resultEntry: x,
           })
